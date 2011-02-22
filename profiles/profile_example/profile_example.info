@@ -29,7 +29,6 @@ dependencies[] = "taxonomy"
 ; Core - UI
 dependencies[] = "dashboard"
 dependencies[] = "help"
-dependencies[] = "toolbar"
 
 ; Contrib - Admin
 dependencies[] = "admin"

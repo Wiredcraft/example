@@ -23,15 +23,15 @@ function profile_example_form_install_configure_form_alter(&$form, $form_state) 
   $form['site_information']['site_name']['#default_value'] = 'Example';
 
   // Admin account.
-  $form['admin_account']['account']['name']['#disabled'] = TRUE;
-  $form['admin_account']['account']['name']['#value'] = $form['site_information']['account']['name']['#default_value'] = 'admin';
+  $form['site_information']['account']['name']['#default_value'] = 'admin';
 
   // Server settings.
   $form['server_settings']['site_default_country']['#default_value'] = 'CN';
   $form['server_settings']['date_default_timezone']['#default_value'] = 'Asia/Shanghai';
 
   // Update notifications.
-  $form['update_notifications']['update_status_module']['#default_value'] = array();
+  $form['update_notifications']['update_status_module']['#default_value'] = array(0 => 0, 1 => 0);
+  $form['update_notifications']['#access'] = FALSE;
 
   // Disable validate.
   $form['#validate'] = array();
