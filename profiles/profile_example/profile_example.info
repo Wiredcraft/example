@@ -52,6 +52,7 @@ dependencies[] = "date_views"
 ; Contrib - Boxes, Context, Features
 dependencies[] = "boxes"
 dependencies[] = "context"
+dependencies[] = "context_ui"
 dependencies[] = "diff"
 dependencies[] = "features"
 dependencies[] = "strongarm"

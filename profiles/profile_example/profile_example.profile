@@ -30,8 +30,7 @@ function profile_example_form_install_configure_form_alter(&$form, $form_state) 
   $form['server_settings']['date_default_timezone']['#default_value'] = 'Asia/Shanghai';
 
   // Update notifications.
-  $form['update_notifications']['update_status_module']['#default_value'] = array(0 => 0, 1 => 0);
-  $form['update_notifications']['#access'] = FALSE;
+  $form['update_notifications']['update_status_module']['#default_value'] = array();
 
   // Disable validate.
   $form['#validate'] = array();
@@ -59,6 +58,12 @@ function install_custom_configure(&$install_state) {
  * 'Finished' callback.
  */
 function install_custom_configure_finished($success, $results, $operations) {
+  // Aegir enables this.
+  if (module_exists('update')) {
+    module_disable(array('update'), FALSE);
+  }
+
+  // Done.
   drupal_flush_all_caches();
 }
 
