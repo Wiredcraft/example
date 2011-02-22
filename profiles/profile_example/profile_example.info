@@ -1,0 +1,58 @@
+; $Id$
+name = "Example"
+description = "Drupal 7 example install profile."
+version = "7.x-1.0"
+core = "7.x"
+
+; Core
+dependencies[] = "dblog"
+dependencies[] = "image"
+dependencies[] = "path"
+dependencies[] = "rdf"
+
+; Core - Field
+dependencies[] = "field_ui"
+
+; Core - Field types
+dependencies[] = "file"
+dependencies[] = "list"
+dependencies[] = "number"
+dependencies[] = "options"
+dependencies[] = "text"
+
+; Core - Content
+dependencies[] = "block"
+dependencies[] = "comment"
+dependencies[] = "menu"
+dependencies[] = "taxonomy"
+
+; Core - UI
+dependencies[] = "dashboard"
+dependencies[] = "help"
+dependencies[] = "toolbar"
+
+; Contrib - Admin
+dependencies[] = "admin"
+
+; Contrib - Tools
+dependencies[] = "ctools"
+dependencies[] = "libraries"
+dependencies[] = "token"
+dependencies[] = "transliteration"
+
+; Contrib - Views
+dependencies[] = "views"
+dependencies[] = "views_ui"
+
+; Contrib - Date
+dependencies[] = "date"
+dependencies[] = "date_api"
+dependencies[] = "date_popup"
+dependencies[] = "date_views"
+
+; Contrib - Boxes, Context, Features
+dependencies[] = "boxes"
+dependencies[] = "context"
+dependencies[] = "diff"
+dependencies[] = "features"
+dependencies[] = "strongarm"

@@ -2,13 +2,6 @@
 !.gitignore
 !.htaccess
 
-/profiles/*
-!/profiles/minimal
-!/profiles/standard
-!/profiles/testing
-
-!/profiles/xxx
-
 /sites/*
 !/sites/all
 !/sites/default
