@@ -7,8 +7,8 @@
  * Perform actions to set up the site for this profile.
  */
 function profile_example_install() {
-  // Allow visitor account creation with administrative approval.
-  variable_set('user_register', USER_REGISTER_VISITORS);
+  // Disable user register.
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
 
   // Enable the admin theme.
   db_update('system')
