@@ -3,7 +3,7 @@ core = 7.x
 
 ; Includes ====================================================================
 
-includes[] = http://drupalcode.org/viewvc/drupal/contributions/profiles/buildkit/drupal-org.make?revision=1.17.2.1.2.13&view=co
+includes[] = http://drupalcode.org/project/buildkit.git/blob_plain/dd1c740967b139a03002848bc1ec83e20ca929f7:/drupal-org.make
 
 ; Override buildkit ===========================================================
 
@@ -60,7 +60,7 @@ projects[languageicons][version] = 1.0-alpha1
 projects[rubik][type] = theme
 projects[rubik][download][type] = git
 projects[rubik][download][url] = git://git.drupal.org/project/rubik.git
-projects[rubik][download][revision] = 33f84bf36e5cdbd26bdb17c20407f440ac4657c1
+projects[rubik][download][branch] = 7.x-4.x
 ; Fix notices
 projects[rubik][patch][] = http://drupal.org/files/issues/999582-1_notices.patch
 
