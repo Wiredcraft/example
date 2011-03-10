@@ -3,17 +3,11 @@ core = 7.x
 
 ; Includes ====================================================================
 
-includes[] = http://drupalcode.org/project/buildkit.git/blob_plain/dd1c740967b139a03002848bc1ec83e20ca929f7:/drupal-org.make
+includes[] = http://drupalcode.org/project/buildkit.git/blob_plain/refs/heads/7.x-2.x:/drupal-org.make
 
 ; Override buildkit ===========================================================
 
-projects[devel][subdir] = contrib
-projects[devel][version] = 1.0
-projects[devel][download] = NULL
-
-projects[features][subdir] = contrib
-projects[features][version] = 1.0-beta1
-projects[features][download] = NULL
+projects[rubik][version] = 4.0-beta5
 
 ; Modules =====================================================================
 
@@ -56,12 +50,5 @@ projects[languageicons][subdir] = multilingual
 projects[languageicons][version] = 1.0-alpha1
 
 ; Themes ======================================================================
-
-projects[rubik][type] = theme
-projects[rubik][download][type] = git
-projects[rubik][download][url] = git://git.drupal.org/project/rubik.git
-projects[rubik][download][branch] = 7.x-4.x
-; Fix notices
-projects[rubik][patch][] = http://drupal.org/files/issues/999582-1_notices.patch
 
 ; Libraries ===================================================================
