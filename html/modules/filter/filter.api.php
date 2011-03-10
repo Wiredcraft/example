@@ -101,6 +101,52 @@ function hook_filter_info() {
 }
 
 /**
+ * Perform alterations on text formats definitions.
+ *
+ * @param $formats
+ *   Array of of all existent text formats.
+ *
+ * @see filter_formats
+ */
+function hook_filter_formats_alter(&$formats) {
+  $filters['custom_format'] = array(
+    'title' => t('Custom text format'),
+    'description' => t('Allows you to restrict the HTML tags the user can use.'),
+    'process callback' => '_custom_callback',
+    'settings callback' => '_custom_settings_callback',
+    'default settings' => array(
+      'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd>',
+      'filter_html_help' => 1,
+      'filter_html_nofollow' => 0,
+    ),
+    'tips callback' => '_custom_text_format_tips',
+  );
+}
+
+/**
+ * Perform alterations on text formats definitions.
+ *
+ * @param $formats
+ *   Array of of all existent text formats.
+ *
+ * @see filter_list_format
+ */
+function hook_filter_list_format_alter(&$formats) {
+  $custom_filter = new StdClass;
+  $custom_filter->format = 'custom_format';
+  $custom_filter->module = 'custom_module';
+  $custom_filter->name = 'custom_filter';
+  $custom_filter->weight = 0;
+  $custom_filter->status = 1;
+  $settings = array(
+    'allowed_html' => '<a> <em> <strong>',
+  );
+  $custom_filter->settings = serialize($settings);
+
+  $formats['custom_format']['custom_filter'] = $custom_filter;
+}
+
+/**
  * Perform alterations on filter definitions.
  *
  * @param $info

@@ -308,7 +308,17 @@ function filter_format_disable($format) {
  * @see filter_format_load()
  */
 function filter_format_exists($format_id) {
-  return (bool) db_query_range('SELECT 1 FROM {filter_format} WHERE format = :format', 0, 1, array(':format' => $format_id))->fetchField();
+  $formats = db_select('filter_format', 'ff')
+    ->fields('ff')
+    ->condition('format', $format_id)
+    ->execute()
+    ->fetchAllAssoc('format');
+
+  // Allow modules to alter the list of formats; e.g., to load formats
+  // exported into code.
+  drupal_alter('filter_formats', $formats);
+
+  return isset($formats[$format_id]);
 }
 
 /**
@@ -407,6 +417,10 @@ function filter_formats($account = NULL) {
         ->orderBy('weight')
         ->execute()
         ->fetchAllAssoc('format');
+
+      // Allow modules to alter the list of formats; e.g., to load formats
+      // exported into code.
+      drupal_alter('filter_formats', $formats['all']);
 
       cache_set("filter_formats:{$language->language}", $formats['all']);
     }
@@ -666,6 +680,10 @@ function filter_list_format($format_id) {
       foreach ($result as $record) {
         $filters['all'][$record->format][$record->name] = $record;
       }
+      // Allow modules to alter the filters of all formats; e.g., to complete
+      // formats exported into code.
+      drupal_alter('filter_list_format', $filters['all']);
+
       cache_set('filter_list_format', $filters['all']);
     }
   }
