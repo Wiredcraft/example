@@ -1,4 +1,3 @@
-; $Id$
 name = "Example"
 description = "Drupal 7 example install profile."
 version = "7.x-1.0"
