@@ -3,7 +3,7 @@ core = 7.x
 
 ; Includes ====================================================================
 
-includes[] =http://drupalcode.org/project/buildkit.git/blob_plain/refs/heads/7.x-2.x:/distro.make
+includes[] = http://drupalcode.org/project/buildkit.git/blob_plain/refs/heads/7.x-2.x:/distro.make
 
 ; Override buildkit ===========================================================
 

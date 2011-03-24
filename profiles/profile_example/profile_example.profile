@@ -26,7 +26,7 @@ function profile_example_form_install_configure_form_alter(&$form, $form_state) 
   $form['site_information']['site_name']['#default_value'] = 'Example';
 
   // Admin account.
-  $form['site_information']['account']['name']['#default_value'] = 'admin';
+  $form['admin_account']['account']['name']['#default_value'] = 'admin';
 
   // Server settings.
   $form['server_settings']['site_default_country']['#default_value'] = 'CN';
