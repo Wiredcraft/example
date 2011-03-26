@@ -13,7 +13,8 @@ includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/libraries.make
 
 ; Override buildkit ===========================================================
 
-projects[rubik][version] = 4.0-beta5
+projects[ctools][version] = 1.0-alpha4
+projects[views][version] = 3.0-beta1
 
 ; Modules =====================================================================
 
