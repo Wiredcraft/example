@@ -311,6 +311,33 @@ function menu_test_menu() {
     'access callback' => TRUE,
   );
 
+  // When the any property is first within a menu item, if we sort all the menu
+  // items by value we can end up with PHP notices when if tries to convert an
+  // object to an int. The access arguments and page arguments are allowed to
+  // contain objects, but we only test access arguments here. We deliberately
+  // set that case up here, so we can test that this is not what we're doing.
+  $common_properties = array(
+    'title' => 'An item with array and object callback arguments',
+    'page callback' => 'menu_test_callback',
+    'access callback' => TRUE,
+  );
+  // By adding four different menu items we ensure that we have each 'type' of
+  // our access arguments surrounded by the of 'type', this ensures that as
+  // least some kind of value sorting will occur between them.
+  $items['menu-test/callback-arguments1'] = array(
+    // This is an object that will get casted to an int (and cause a PHP notice).
+    'access arguments' => array((object) array('a', 'b')),
+  ) + $common_properties;
+  $items['menu-test/callback-arguments2'] = array(
+    'access arguments' => array(0),
+  ) + $common_properties;
+  $items['menu-test/callback-arguments3'] = array(
+    'access arguments' => array((object) array('c', 'd')),
+  ) + $common_properties;
+  $items['menu-test/callback-arguments4'] = array(
+    'access arguments' => array(1),
+  ) + $common_properties;
+
   return $items;
 }
 

@@ -2695,9 +2695,10 @@ function _menu_navigation_links_rebuild($menu) {
   }
   if ($menu_links) {
     // Make sure no child comes before its parent.
-    array_multisort($sort, SORT_NUMERIC, $menu_links);
+    asort($sort, SORT_NUMERIC);
 
-    foreach ($menu_links as $item) {
+    foreach (array_keys($sort) as $path) {
+      $item = $menu_links[$path];
       $existing_item = db_select('menu_links')
         ->fields('menu_links', array(
           'mlid',
@@ -3461,9 +3462,9 @@ function _menu_router_build($callbacks) {
       $sort[$path] = $number_parts;
     }
   }
-  array_multisort($sort, SORT_NUMERIC, $menu);
+  asort($sort, SORT_NUMERIC);
   // Apply inheritance rules.
-  foreach ($menu as $path => $v) {
+  foreach (array_keys($sort) as $path) {
     $item = &$menu[$path];
     if (!$item['_tab']) {
       // Non-tab items.
