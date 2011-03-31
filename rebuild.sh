@@ -14,4 +14,4 @@ for DIR in $DIRS; do
   fi;
 done;
 
-drush make --no-core --contrib-destination=. config/example.make;
+drush make --no-core --contrib-destination=. config/example.make -y;
