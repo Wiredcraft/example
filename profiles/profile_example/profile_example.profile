@@ -59,11 +59,6 @@ function install_custom_configure(&$install_state) {
   $batch['operations'][] = array('profile_helper_flush_cache', array());
 
   // Create links.
-  $batch['operations'][] = array('profile_helper_create_menu_links', array('main-menu', array(
-    '<front>' => 'Home',
-  ), -10));
-
-  // Create links.
   $batch['operations'][] = array('profile_helper_create_menu_links', array('user-menu', array(
     'user/login' => 'Log in',
     'user/register' => 'Register',
@@ -75,13 +70,13 @@ function install_custom_configure(&$install_state) {
 }
 
 /**
- * 'Finished' callback.
+ * Batch finished callback.
  */
 function install_custom_configure_finished($success, $results, $operations) {
   // Aegir enables this.
-  if (module_exists('update')) {
-    module_disable(array('update'), FALSE);
-  }
+//  if (module_exists('update')) {
+//    module_disable(array('update'), FALSE);
+//  }
 
   // Done.
   drupal_flush_all_caches();

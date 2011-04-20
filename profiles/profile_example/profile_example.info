@@ -55,3 +55,8 @@ dependencies[] = "context_ui"
 dependencies[] = "diff"
 dependencies[] = "features"
 dependencies[] = "strongarm"
+
+; Features
+dependencies[] = "features_page"
+dependencies[] = "features_settings"
+dependencies[] = "features_tags"
