@@ -1,0 +1,3 @@
+<?php
+
+include_once('features_settings.features.inc');
