@@ -23,4 +23,9 @@
 /test*
 /potx*
 
+/*.txt
+!/COPYRIGHT.txt
+!/LICENSE.txt
+!/robots.txt
+
 drushrc.php
