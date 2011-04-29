@@ -11,6 +11,10 @@ includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/multilingual.mak
 
 includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/libraries.make
 
+includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/performance.make
+
+includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/developer.make
+
 includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/themes.make
 
 ; Override buildkit ===========================================================
