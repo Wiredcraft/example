@@ -1,28 +1,15 @@
-api = 2
-core = 7.x
+core = "7.x"
+api = "2"
 
 ; Includes ====================================================================
 
-includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/drupal-org.make
-
-includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/tools.make
-
-includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/multilingual.make
-
-includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/libraries.make
-
-includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/performance.make
-
-includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/developer.make
-
-includes[] = https://github.com/Wiredcraft/buildkit/raw/7.x-2.x/themes.make
-
-; Override buildkit ===========================================================
+includes[] = "https://raw.github.com/makara/buildkit_plus_v7/master/base.make"
 
 ; Modules =====================================================================
 
-projects[mollom][subdir] = contrib
-projects[mollom][version] = 1.0
+projects[mollom][type] = "module"
+projects[mollom][subdir] = "contrib"
+projects[mollom][version] = "1.1"
 
 ; Themes ======================================================================
 

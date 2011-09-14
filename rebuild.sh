@@ -1,6 +1,6 @@
 #!/bin/bash
 
-drush make --no-core --contrib-destination=temp_all config/example.make -y;
+drush make --no-core --contrib-destination=temp_all --force-complete config/example.make -y;
 
 if [ ! -d html/sites/all ]; then
 	mkdir -p html/sites/all;

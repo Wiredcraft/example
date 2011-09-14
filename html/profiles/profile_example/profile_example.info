@@ -29,18 +29,26 @@ dependencies[] = "taxonomy"
 dependencies[] = "dashboard"
 dependencies[] = "help"
 
-; Contrib - Admin
+; Buildkit
 dependencies[] = "admin"
+dependencies[] = "context"
+dependencies[] = "ctools"
+dependencies[] = "devel"
+dependencies[] = "diff"
+dependencies[] = "features"
+dependencies[] = "openidadmin"
+dependencies[] = "strongarm"
+dependencies[] = "views"
 
 ; Contrib - Tools
-dependencies[] = "ctools"
+dependencies[] = "boxes"
+dependencies[] = "entity"
+dependencies[] = "feeds"
+dependencies[] = "job_scheduler"
 dependencies[] = "libraries"
+dependencies[] = "markdown"
 dependencies[] = "token"
 dependencies[] = "transliteration"
-
-; Contrib - Views
-dependencies[] = "views"
-dependencies[] = "views_ui"
 
 ; Contrib - Date
 dependencies[] = "date"
@@ -48,13 +56,13 @@ dependencies[] = "date_api"
 dependencies[] = "date_popup"
 dependencies[] = "date_views"
 
-; Contrib - Boxes, Context, Features
-dependencies[] = "boxes"
-dependencies[] = "context"
+; Contrib - Performance
+dependencies[] = "entitycache"
+
+; Contrib - UIs
 dependencies[] = "context_ui"
-dependencies[] = "diff"
-dependencies[] = "features"
-dependencies[] = "strongarm"
+dependencies[] = "feeds_ui"
+dependencies[] = "views_ui"
 
 ; Features
 dependencies[] = "features_page"
