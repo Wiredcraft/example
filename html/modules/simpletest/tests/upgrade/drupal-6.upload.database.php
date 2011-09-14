@@ -1,5 +1,4 @@
 <?php
-// $Id: drupal-6.upload.database.php,v 1.2 2010/11/13 01:48:14 dries Exp $
 
 db_insert('files')->fields(array(
   'fid',
@@ -110,6 +109,17 @@ db_insert('files')->fields(array(
   'uid' => '1',
   'filename' => 'forum-sticky.png',
   'filepath' => 'sites/default/files/forum-sticky.png',
+  'filemime' => 'image/png',
+  'filesize' => '329',
+  'status' => '1',
+  'timestamp' => '1285708957',
+))
+// Test upgrading files with the same name but different case.
+->values(array(
+  'fid' => '11',
+  'uid' => '1',
+  'filename' => 'FORUM-STICKY.PNG',
+  'filepath' => 'sites/default/files/FORUM-STICKY.PNG',
   'filemime' => 'image/png',
   'filesize' => '329',
   'status' => '1',
@@ -236,8 +246,8 @@ db_insert('node_revisions')->fields(array(
   'vid' => '53',
   'uid' => '1',
   'title' => 'node title 40 revision 53',
-  'body' => "Attachments:\r\nforum-hot-new.png\r\nforum-hot.png\r\nforum-sticky.png\r\nforum-new.png",
-  'teaser' => "Attachments:\r\nforum-hot-new.png\r\nforum-hot.png\r\nforum-sticky.png\r\nforum-new.png",
+  'body' => "Attachments:\r\nforum-hot-new.png\r\nforum-hot.png\r\nforum-sticky.png\r\nforum-new.png\r\nFORUM-STICKY.PNG",
+  'teaser' => "Attachments:\r\nforum-hot-new.png\r\nforum-hot.png\r\nforum-sticky.png\r\nforum-new.png\r\nFORUM-STICKY.PNG",
   'log' => '',
   'timestamp' => '1285709012',
   'format' => '1',
@@ -394,5 +404,14 @@ db_insert('upload')->fields(array(
   'description' => 'forum-new.png',
   'list' => '1',
   'weight' => '-1',
+))
+// Test upgrading files with the same name but different case.
+->values(array(
+  'fid' => '11',
+  'nid' => '40',
+  'vid' => '53',
+  'description' => 'FORUM-STICKY.PNG',
+  'list' => '1',
+  'weight' => '0',
 ))
 ->execute();

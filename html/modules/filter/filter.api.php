@@ -1,5 +1,4 @@
 <?php
-// $Id: filter.api.php,v 1.22 2010/12/09 02:04:16 dries Exp $
 
 /**
  * @file
@@ -105,10 +104,14 @@ function hook_filter_info() {
  *
  * @param $formats
  *   Array of of all existent text formats.
+ * @param $only_enabled_formats
+ *   Boolean. If TRUE, $formats will contain only enabled formats,
+ *   otherwise both, disabled and enabled formats, will be available in
+ *   $formats parameter.
  *
- * @see filter_formats
+ * @see filter_formats()
  */
-function hook_filter_formats_alter(&$formats) {
+function hook_filter_formats_alter(&$formats, $only_enabled_formats) {
   $filters['custom_format'] = array(
     'title' => t('Custom text format'),
     'description' => t('Allows you to restrict the HTML tags the user can use.'),
@@ -129,7 +132,7 @@ function hook_filter_formats_alter(&$formats) {
  * @param $formats
  *   Array of of all existent text formats.
  *
- * @see filter_list_format
+ * @see filter_list_format()
  */
 function hook_filter_list_format_alter(&$formats) {
   $custom_filter = new StdClass;

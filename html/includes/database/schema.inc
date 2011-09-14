@@ -1,5 +1,4 @@
 <?php
-// $Id: schema.inc,v 1.44 2011/01/03 18:03:54 webchick Exp $
 
 /**
  * @file
@@ -77,6 +76,9 @@ require_once dirname(__FILE__) . '/query.inc';
  *       the precision (total number of significant digits) and scale
  *       (decimal digits right of the decimal point). Both values are
  *       mandatory. Ignored for other field types.
+ *     - 'binary': For type 'char', 'varchar' or 'text' fields on MySQL, forces
+ *       a case-sensitive binary collation. This has no effect on other database
+ *       types for which case sensitivity is already the default behavior.
  *     All parameters apart from 'type' are optional except that type
  *     'numeric' columns must specify 'precision' and 'scale'.
  *  - 'primary key': An array of one or more key column specifiers (see below)
@@ -177,10 +179,33 @@ abstract class DatabaseSchema implements QueryPlaceholderInterface {
    */
   protected $defaultSchema = 'public';
 
+  /**
+   * A unique identifier for this query object.
+   */
+  protected $uniqueIdentifier;
+
   public function __construct($connection) {
+    $this->uniqueIdentifier = uniqid('', TRUE);
     $this->connection = $connection;
   }
 
+  /**
+   * Implements the magic __clone function.
+   */
+  public function __clone() {
+    $this->uniqueIdentifier = uniqid('', TRUE);
+  }
+
+  /**
+   * Implements QueryPlaceHolderInterface::uniqueIdentifier().
+   */
+  public function uniqueIdentifier() {
+    return $this->uniqueIdentifier;
+  }
+
+  /**
+   * Implements QueryPlaceHolderInterface::nextPlaceholder().
+   */
   public function nextPlaceholder() {
     return $this->placeholder++;
   }

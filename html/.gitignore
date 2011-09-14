@@ -2,8 +2,6 @@
 !.gitignore
 !.htaccess
 
-*.orig
-
 /sites/*
 !/sites/all
 !/sites/default
@@ -22,6 +20,9 @@
 /backup
 /test*
 /potx*
+
+*.orig
+*.mo
 
 /*.txt
 !/COPYRIGHT.txt
